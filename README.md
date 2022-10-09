@@ -8,20 +8,6 @@ an activity to learn SQL and use it to create databases, and query the data stor
     dept_no varchar pk
     dept_name varchar
 
-    dept_emp
-    -
-    emp_no varint pk fk -< employees.emp_no pk fk -< dept_manager.emp_no
-    dept_no varint pk fk -< dept_manager.dept_no
-    from_date date
-    to_date date
-
-    dept_manager
-    -
-    dept_no varint pk fk - departments.dept_no
-    emp_no varint pk fk - employees.emp_no
-    from_date date
-    to_date date
-
     employees
     -
     emp_no varint pk
@@ -31,16 +17,30 @@ an activity to learn SQL and use it to create databases, and query the data stor
     gender varchar
     hire_date date
 
+    dept_manager
+    -
+    dept_no varint pk fk - departments.dept_no
+    emp_no varint pk fk - employees.emp_no
+    from_date date
+    to_date date
+
+    dept_emp
+    -
+    emp_no varint pk fk -< employees.emp_no pk fk -< dept_manager.emp_no
+    dept_no varint pk fk -< departments.dept_no pk fk -< dept_manager.dept_no
+    from_date date
+    to_date date
+
     salaries
     -
     emp_no varint pk fk - employees.emp_no
-    salary varint pk
+    salary varint
     from_date date
     to_date date
 
     titles
     -
     emp_no varint pk fk >- employees.emp_no
-    title varchar pk
+    title varchar
     from_date date
     to_date date
