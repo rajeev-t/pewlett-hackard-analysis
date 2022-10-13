@@ -1,46 +1,54 @@
-# Pewlett-Hackard-Analysis
-an activity to learn SQL and use it to create databases, and query the data stored on those databases
+# Employee Database with SQL
 
-## ERD Text
+## Project Overview
+---
 
-    departments
-    -
-    dept_no varchar pk
-    dept_name varchar
+The client, an HR analyst for Pewlett Hackard, Bobby, will require assistance in analyzing employee data in the form of *.csv* files. The purpose of analyzing the data is to set up the company to be future-proof, in the occurence of retirements, offering the respective packages, and planning the refilling of those roles.
 
-    employees
-    -
-    emp_no varint pk
-    birth_date date
-    first_name varchar
-    last_name varchar
-    gender varchar
-    hire_date date
+<br>
 
-    dept_manager
-    -
-    dept_no varint pk fk - departments.dept_no
-    emp_no varint pk fk - employees.emp_no
-    from_date date
-    to_date date
+## Results
+---
 
-    dept_emp
-    -
-    emp_no varint pk fk -< employees.emp_no pk fk -< dept_manager.emp_no
-    dept_no varint pk fk -< departments.dept_no pk fk -< dept_manager.dept_no
-    from_date date
-    to_date date
+The deliverables were to create:
 
-    salaries
-    -
-    emp_no varint pk fk - employees.emp_no
-    salary varint
-    from_date date
-    to_date date
+1. a list of retiring employees, and
+2. a list of employees eligible for the mentorship program
 
-    titles
-    -
-    emp_no varint pk fk >- employees.emp_no
-    title varchar
-    from_date date
-    to_date date
+<br>
+
+1. List of Retiring Employees:
+
+    * Three tables were built- *retirement_titles.csv, unique_titles.csv,* and *retiring_titles.csv*
+    * The first table represents the number of employees retiring, while the second table, essentially, represents the first table without duplicates, as seen below-
+
+        <p float="left">
+            <img src="Resources/retirement_titles.png" width="500" />
+        </p> 
+        <p float="left">
+            <img src="Resources/unique_titles.png" width="500" />
+        </p>
+
+    * The total number of rows in the first table is 133,776, whereas the total number of rows in the second table is 90, 398. The second table's rows is the true representation.
+
+    * The third table represents the total number of employees, when grouped by titles
+
+        <p float="left">
+            <img src="Resources/retiring_titles.png" width="300" />
+        </p>
+
+<br>
+
+2. Eligibility for Mentorship Program:
+
+    * The table provides the following details-
+
+        <p float="left">
+            <img src="Resources/mentor_eligibility.png" width="500" />
+        </p>
+
+<br>
+
+## Summary
+---
+
